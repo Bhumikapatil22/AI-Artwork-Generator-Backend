@@ -8,7 +8,7 @@ import authRoutes from "../routes/authRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: 'https://ai-artwork-generator.vercel.app/', credentials: true }));
 app.use(express.json({ limit: "50mb" }));
 
 app.use("/api/v1/post", postRoutes);
@@ -23,7 +23,7 @@ const startServer = async () => {
     try {
         connectDB(process.env.MONGODB_URL)
         app.listen(8000, () =>
-            console.log("Server has started on port http://localhos")
+            console.log("Server has started on port http://localhost:8000")
         );
     } catch (error) {
         console.log(error)
