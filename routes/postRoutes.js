@@ -36,7 +36,7 @@ router.route('/').get(async (req, res) => {
     }
   });
   
-  router.route('/my-posts').get(verifyToken, async (req, res) => {
+  router.route('/my-posts').get( async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id }).sort({ createdAt: -1 });
       res.status(200).json({ success: true, data: posts });
@@ -74,7 +74,7 @@ router.route('/').get(async (req, res) => {
 
 // export default router;
 
-router.route('/').post(verifyToken, async (req, res) => {
+router.route('/').post(async (req, res) => {
     try {
       const { prompt, photo } = req.body;
   
